@@ -1,0 +1,17 @@
+[binaries]
+c = ['clang', '--target=arm-none-eabi', '-march=armv6-m', '-mcpu=cortex-m4', '-mfpu=fpv4-sp-d16', '-mthumb']
+strip='llvm-strip'
+c_ld='lld'
+
+[host_machine]
+system = 'none'
+cpu_family = 'arm'
+cpu = 'cortex-m4'
+endian = 'little'
+
+[built-in options]
+c_link_args = ['-T', '@GLOBAL_SOURCE_ROOT@' / 'ld' / 'md407.x', '-nodefaultlibs']
+
+[properties]
+board = 'md407'
+input_bfdname = 'elf32-little'
